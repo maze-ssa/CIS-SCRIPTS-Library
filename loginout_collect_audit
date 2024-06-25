@@ -1,0 +1,15 @@
+
+#disk config
+ awk '/^ *-w/ \
+&&(/\/var\/log\/lastlog/ \
+ ||/\/var\/run\/faillock/) \
+&&/ +-p *wa/ \
+&&(/ key= *[!-~]* *$/||/ -k *[!-~]* *$/)' /etc/audit/rules.d/*.rules
+
+
+#running config
+ auditctl -l | awk '/^ *-w/ \
+&&(/\/var\/log\/lastlog/ \
+ ||/\/var\/run\/faillock/) \
+&&/ +-p *wa/ \
+&&(/ key= *[!-~]* *$/||/ -k *[!-~]* *$/)'
