@@ -16,9 +16,9 @@
  if grep -Pq -- '^\h*0\h*$' /sys/module/ipv6/parameters/disable; then
     l_ip6saddr="$(nft list ruleset | awk '/filter_IN_public_deny|hookinput/,/}/' | grep 'ip6 saddr')"
  if grep -Pq 'ip6\h+saddr\h+::1\h+(counter\h+packets\h+\d+\h+bytes\h+\d+\h+)?drop' <<< "$l_ip6saddr" || grep -Pq -- 'ip6\h+daddr\h+\!=\h+::1\h+ip6\h+saddr\h+::1\h+drop' <<< "$l_ip6saddr"; then
- l_output="$l_output\n - IPv6 network traffic from loopback address correctly set to drop"
+    l_output="$l_output\n - IPv6 network traffic from loopback address correctly set to drop"
  else
- l_output2="$l_output2\n - IPv6 network traffic from loopback address not set to drop"
+    l_output2="$l_output2\n - IPv6 network traffic from loopback address not set to drop"
  fi
  fi
  if [ -z "$l_output2" ]; then
