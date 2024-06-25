@@ -1,0 +1,8 @@
+grep pam_pwquality.so /etc/pam.d/system-auth /etc/pam.d/password-auth
+
+grep ^minlen /etc/security/pwquality.conf
+
+
+grep ^minclass /etc/security/pwquality.conf
+
+grep -E "^\s*\Scredit\s*=" /etc/security/pwquality.conf
