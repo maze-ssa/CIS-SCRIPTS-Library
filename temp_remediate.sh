@@ -13,7 +13,7 @@ mount -o remount,noexec /dev/shm
 systemctl status tmp.mount
 cp -pr /tmp_bak/* /tmp/
 cp -p /etc/fstab /etc/fstab_bak
-echo "tmpfs /dev/shm tmpfs defaults,nodev,nosuid,noexec 0 0" >> /etc/fstab
-echo "tmpfs /tmp tmpfs defaults,nodev,nosuid,noexec 0 0" >> /etc/fstab
+echo "tmpfs /dev/shm tmpfs defaults,nodev,nosuid,noexec,relatime 0 0" >> /etc/fstab
+echo "tmpfs /tmp tmpfs defaults,nodev,nosuid,noexec,relatime 0 0" >> /etc/fstab
 mount | grep /tmp
 mount | grep /dev/shm
