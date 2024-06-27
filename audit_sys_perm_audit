@@ -1,0 +1,1 @@
+rpm -Va --nomtime --nosize --nomd5 --nolinkto >  audit_sys_perm
